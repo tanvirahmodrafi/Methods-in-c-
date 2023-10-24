@@ -2,6 +2,7 @@
 #include <cmath>
 
 using namespace std;
+// This code removes an item from an array.
 
 int main()
 {
