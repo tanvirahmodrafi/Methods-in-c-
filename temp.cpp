@@ -2,38 +2,37 @@
 #include <cmath>
 
 using namespace std;
-// This code removes an item from an array.
 
 int main()
 {
+	int arr1[5] = {2,3,4,6,9},
+		arr2[4] = {1,3,5,8};
+	
 	int n;
-	cout<< "Length of the array"<<'\n';
-	cin >> n;
-	int arrr[n];
-	for (int i = 0; i < n; i++){
-		cin >> arrr[i];
-	}
 
-	int sizeOfArray = sizeof(arrr)/sizeof(arrr[0]);
+	int sizeOfArr1 = sizeof(arr1)/sizeof(arr1[0]);
+	int sizeOfArr2 = sizeof(arr2)/sizeof(arr2[0]);
 
-	for (int i = 0; i < n; i++)
+	n = (sizeOfArr1 + sizeOfArr2);
+	int mergedArr[n];
+	int sizeOfMargeedArr = sizeof(mergedArr)/sizeof(mergedArr[0]);
+
+	for (int i = 0; i < sizeOfArr1; i++)
 	{
-		cout<<"0"<<i<<": "<<arrr[i]<<endl;
+		mergedArr[i] = arr1[i];
 	}
-
-	int position = 0;
-	cout<< "Enter the position of the element to be deleted"<<'\n';
-	cin >> position;
-
-	for(int i = position - 1; i < n; i++){
-		arrr[i] = arrr[i+1];
-	}
-	n--;
-
-	for (int i = 0; i < n; i++)
+	for (int i = n-sizeOfArr2,j = 0; i < n; i++,j++)
 	{
-		cout<<arrr[i]<<": 0"<<i<<endl;
+		mergedArr[i] = arr2[j];
+	}
+
+    sort(mergedArr, mergedArr + sizeOfMargeedArr);
+
+	for (int i = 0; i < sizeOfMargeedArr; i++){
+		cout << mergedArr[i] << " ";
 	}
 	
+
+
 	return 0;
 }
